@@ -487,6 +487,12 @@ enum {
 + (NSString *)version;
 
 /*!
+ * Get Register internal device ID
+ *\return The internal device ID
+ */
++ (NSString *)deviceId;
+
+/*!
  * History of arrival/departure events.
  * \return Array of events
  * 
@@ -501,13 +507,20 @@ enum {
  */
 + (NSArray *)userStayLocationHistory;
 
-
 /*!
  *
  * Save the in-memory data into disk.
  * It is recommended to trigger before the application is going to be terminated.
  */
 + (void)saveData;
+
+/*!
+ *
+ * Upload remaining data to server right away. Currenly it does not suppoer onComplete/onError callback.
+ * It is recommended to trigger flush data before logout or want to upload data right away.
+ * Please note: this API is still in beta.
+ */
+//+ (void)flushData;
 
 //PRIVATE
 
